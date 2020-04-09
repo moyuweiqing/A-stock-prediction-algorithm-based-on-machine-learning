@@ -1,6 +1,10 @@
 # A-stock-prediction-algorithm-based-on-machine-learning
 **（陆续更新）重新整理过的基于机器学习的股票价格预测算法，里面包含了基本的回测系统以及各种不同的机器学习算法的股票价格预测，包含：LSTM算法、Prophet算法、AutoARIMA、朴素贝叶斯、SVM等**
 
+### 4-9  
+**机器学习算法/Randomforest.py**
+随机森林算法，给出一个y指标是T+1日对于T日是否看涨。在这里需要调整的参数是在new一个模型的时候给出的max_depth和n_estimators。通过给出node（分隔点）来确定训练集和测试集。在这里有一个roc_auc_score()函数，是用来测试该算法对于预测而言有没有偏袒。  
+
 ### 4-7  
 **基本面机器学习算法/NBM.py**  
 朴素贝叶斯算法，在这个例子中使用的是通过之前季度的财务报表中的各种指标，来预测下一季度的财务报表中的情况，朴素贝叶斯算法其实非常简单，可以自己实现，在这里使用的是sklearn.naive_bayes中的GaussianNB。主要的调用规则是：  
