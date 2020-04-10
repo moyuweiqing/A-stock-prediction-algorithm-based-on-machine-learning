@@ -2,8 +2,12 @@
 **（陆续更新）重新整理过的基于机器学习的股票价格预测算法，里面包含了基本的回测系统以及各种不同的机器学习算法的股票价格预测，包含：LSTM算法、Prophet算法、AutoARIMA、朴素贝叶斯、SVM等**  
 #### 强烈推荐大家去看看sklearn库的文档，地址：[https://sklearn.apachecn.org ] 
 
+### 4-10  
+**机器学习算法/DecisionTree.py**  
+决策树算法，这里也是直接调用的sklearn库。和随机森林算法的思路过程没什么不同，也是先构建x_test, y_test, x_train, y_train,然后放入模型里进行拟合。其算法效果和随机森林差别不大。
+
 ### 4-9  
-**机器学习算法/Randomforest.py**
+**机器学习算法/Randomforest.py**  
 随机森林算法，给出一个y指标是T+1日对于T日是否看涨。在这里需要调整的参数是在new一个模型的时候给出的max_depth和n_estimators。通过给出node（分隔点）来确定训练集和测试集。在这里有一个roc_auc_score()函数，是用来测试该算法对于预测而言有没有偏袒。  
 
 ### 4-7  
