@@ -17,6 +17,10 @@ def draw():
                                 js_host= "./",
                                 ))
             .set_global_opts(
+                title_opts=opts.TitleOpts(
+                    title='股票价格走势',
+                    subtitle='000001股票价格走势'
+                ),
                 tooltip_opts=opts.TooltipOpts(
                     is_show = True,
                     axis_pointer_type = "line"
@@ -28,14 +32,15 @@ def draw():
                 ),
                 yaxis_opts=opts.AxisOpts(
                     type_="value",
-                    name='价钱',
+                    name='价格',
                     min_=12,
                     max_=18,
                     split_number = 5,
                     axistick_opts=opts.AxisTickOpts(is_show=True),
                     splitline_opts=opts.SplitLineOpts(is_show=True),
                     splitarea_opts=opts.SplitAreaOpts(is_show=True, areastyle_opts=opts.AreaStyleOpts(opacity=1))
-                )
+                ),
+                datazoom_opts=[opts.DataZoomOpts()],
             )
             .add_xaxis(
                 xaxis_data=date_list
@@ -44,12 +49,13 @@ def draw():
                 series_name="股市K线图",
                 is_selected = True,
                 y_axis=price_list,
-                # itemstyle_opts=opts.ItemStyleOpts(
-                #     color="#ec0000",
-                #     color0="#00da3c",
-                #     border_color="#8A0000",
-                #     border_color0="#008F28",
-                # ),
+                markpoint_opts=opts.MarkPointOpts(
+                    data=[
+                        opts.MarkPointItem(type_="max", name="最大值"),
+                        opts.MarkPointItem(type_="min", name="最小值"),
+                        opts.MarkPointItem(type_="average", name="平均值")
+                    ]
+                )
             )
         )
 
