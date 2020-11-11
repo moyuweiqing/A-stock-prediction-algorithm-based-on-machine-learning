@@ -17,32 +17,41 @@ def draw():
                                 js_host= "./",
                                 ))
             .set_global_opts(
-            tooltip_opts=opts.TooltipOpts(
-                is_show = True,
-                axis_pointer_type = "line"),
-            xaxis_opts=opts.AxisOpts(
-                type_="time",
-                name = '日期',
-                split_number = 10),
-            yaxis_opts=opts.AxisOpts(
-                type_="value",
-                name='价钱',
-                min_=12,
-                max_=18,
-                split_number = 5,
-                axistick_opts=opts.AxisTickOpts(is_show=True),
-                splitline_opts=opts.SplitLineOpts(is_show=True),
-            ),
-        )
-            # .add_xaxis(
-            # xaxis_data=date_list)
+                tooltip_opts=opts.TooltipOpts(
+                    is_show = True,
+                    axis_pointer_type = "line"
+                ),
+                xaxis_opts=opts.AxisOpts(
+                    # type_="time",
+                    name = '日期',
+                    split_number = 10
+                ),
+                yaxis_opts=opts.AxisOpts(
+                    type_="value",
+                    name='价钱',
+                    min_=12,
+                    max_=18,
+                    split_number = 5,
+                    axistick_opts=opts.AxisTickOpts(is_show=True),
+                    splitline_opts=opts.SplitLineOpts(is_show=True),
+                    splitarea_opts=opts.SplitAreaOpts(is_show=True, areastyle_opts=opts.AreaStyleOpts(opacity=1))
+                )
+            )
+            .add_xaxis(
+                xaxis_data=date_list
+            )
             .add_yaxis(
-            series_name="股市K线图",
-            is_selected = True,
-            y_axis=price_list
+                series_name="股市K线图",
+                is_selected = True,
+                y_axis=price_list,
+                # itemstyle_opts=opts.ItemStyleOpts(
+                #     color="#ec0000",
+                #     color0="#00da3c",
+                #     border_color="#8A0000",
+                #     border_color0="#008F28",
+                # ),
+            )
         )
-
-    )
 
     kline.render(path='first_bar.html')
 
@@ -56,7 +65,7 @@ def date_setting(start_date, end_date):
     for i in range(0, len(tsData)):
         alist = []
         date_list.append(tsData['date'].iloc[i])
-        alist.append(tsData['date'].iloc[i])
+        # alist.append(tsData['date'].iloc[i])
         alist.append(tsData['open'].iloc[i])
         alist.append(tsData['close'].iloc[i])
         alist.append(tsData['low'].iloc[i])
@@ -64,7 +73,6 @@ def date_setting(start_date, end_date):
 
         price_list.append(alist)
 
-    # print(price_list)
 if __name__ == '__main__':
-    date_setting(start_date='2020-07-01', end_date='2020-10-01')
+    date_setting(start_date='2020-07-01', end_date='2020-09-30')
     draw()
