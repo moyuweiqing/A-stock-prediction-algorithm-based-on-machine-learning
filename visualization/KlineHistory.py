@@ -88,7 +88,7 @@ def draw():
                     is_show=True,
                     xaxis_index=[0, 1],
                     type_="slider",
-                    pos_top="95%",
+                    pos_top="92%",
                     range_start=38,
                     range_end=70,
                 ),
@@ -207,7 +207,7 @@ def draw():
     grid_chart.add(
         bar,
         grid_opts=opts.GridOpts(
-            pos_left="10%", pos_right="8%", pos_top="70%", height="16%"
+            pos_left="10%", pos_right="8%", pos_top="70%", height="18%"
         ),
     )
 
@@ -234,7 +234,14 @@ def change_data(dataframe):
             ma5_list.append(dataframe['ma5'].iloc[i])
             ma10_list.append(dataframe['ma10'].iloc[i])
             ma20_list.append(dataframe['ma20'].iloc[i])
-            volume_list.append(dataframe['volume'].iloc[i])
+
+            # 柱状图数据处理
+            color = ''
+            if dataframe['open'].iloc[i] > dataframe['close'].iloc[i]:
+                color = '#ADFF2F'
+            else:
+                color = '#FF4500'
+            volume_list.append(opts.BarItem(value=dataframe['volume'].iloc[i], itemstyle_opts=opts.ItemStyleOpts(color=color)))
 
             price_list.append(alist)
         print('股票数据已成功转换')
