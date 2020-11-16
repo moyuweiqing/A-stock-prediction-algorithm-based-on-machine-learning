@@ -38,8 +38,12 @@ def draw():
                 )
             ),
             tooltip_opts=opts.TooltipOpts(
-                is_show=True,
-                axis_pointer_type="line"
+                trigger="axis",
+                axis_pointer_type="cross",
+                background_color="rgba(245, 245, 245, 0.8)",
+                border_width=1,
+                border_color="#ccc",
+                textstyle_opts=opts.TextStyleOpts(color="#000"),
             ),
             xaxis_opts=opts.AxisOpts(
                 # type_="time",
@@ -67,20 +71,38 @@ def draw():
                 splitline_opts=opts.SplitLineOpts(is_show=True),
                 splitarea_opts=opts.SplitAreaOpts(is_show=True, areastyle_opts=opts.AreaStyleOpts(opacity=1))
             ),
+            axispointer_opts=opts.AxisPointerOpts(
+                is_show=True,
+                link=[{"xAxisIndex": "all"}],
+                label=opts.LabelOpts(background_color="#777"),
+            ),
             datazoom_opts=[
                 opts.DataZoomOpts(
                     is_show=False,
                     type_="inside",
+                    xaxis_index=[0, 1],
                     range_start=30,
                     range_end=70,
                 ),
                 opts.DataZoomOpts(
                     is_show=True,
+                    xaxis_index=[0, 1],
                     type_="slider",
-                    range_start=30,
+                    pos_top="95%",
+                    range_start=38,
                     range_end=70,
                 ),
             ],
+            visualmap_opts=opts.VisualMapOpts(
+                is_show=False,
+                dimension=2,
+                series_index=5,
+                is_piecewise=True,
+                pieces=[
+                    {"value": 1, "color": "#00da3c"},
+                    {"value": -1, "color": "#ec0000"},
+                ],
+            ),
         )
             .add_xaxis(
             xaxis_data=date_list
@@ -126,17 +148,19 @@ def draw():
             y_axis=ma20_list,
             label_opts=opts.LabelOpts(is_show=False)
         )
+            .set_global_opts(xaxis_opts=opts.AxisOpts(type_="category"))
     )
 
     bar = (Bar()
         .add_xaxis(xaxis_data=date_list)
         .add_yaxis(
-            series_name="Volume",
+            series_name="交易量",
             yaxis_data=volume_list,
             xaxis_index=1,
             yaxis_index=1,
             label_opts=opts.LabelOpts(is_show=False),
-        ).set_global_opts(
+        )
+        .set_global_opts(
             xaxis_opts=opts.AxisOpts(
                 type_="category",
                 is_scale=True,
@@ -235,4 +259,4 @@ def date_setting(stock_code, start_date, end_date):
 
 if __name__ == '__main__':
     date_setting(stock_code='000001', start_date='2020-04-01', end_date='2020-09-30')
-    # draw()
+    draw()
