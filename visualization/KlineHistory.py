@@ -17,7 +17,13 @@ ma10_list = []
 ma20_list = []
 volume_list = []
 
+high_list = []
+low_list = []
+
 def draw():
+    min_value = int(min(low_list)) - 2
+    max_value = int(max(high_list)) + 2
+
     kline = (
         Kline()
             .set_global_opts(
@@ -59,8 +65,8 @@ def draw():
             yaxis_opts=opts.AxisOpts(
                 type_="value",
                 name='价格',
-                min_=12,
-                max_=17,
+                min_=min_value,
+                max_=max_value,
                 split_number=4,
                 axispointer_opts=opts.AxisPointerOpts(is_show=True),
                 name_textstyle_opts=opts.TextStyleOpts(
@@ -155,7 +161,7 @@ def draw():
         .add_xaxis(xaxis_data=date_list)
         .add_yaxis(
             series_name="交易量",
-            yaxis_data=volume_list,
+            y_axis=volume_list,
             xaxis_index=1,
             yaxis_index=1,
             label_opts=opts.LabelOpts(is_show=False),
@@ -235,13 +241,16 @@ def change_data(dataframe):
             ma10_list.append(dataframe['ma10'].iloc[i])
             ma20_list.append(dataframe['ma20'].iloc[i])
 
+            high_list.append(dataframe['high'].iloc[i])
+            low_list.append(dataframe['low'].iloc[i])
+
             # 柱状图数据处理
             color = ''
             if dataframe['open'].iloc[i] > dataframe['close'].iloc[i]:
                 color = '#ADFF2F'
             else:
                 color = '#FF4500'
-            volume_list.append(opts.BarItem(value=dataframe['volume'].iloc[i], itemstyle_opts=opts.ItemStyleOpts(color=color)))
+            volume_list.append(opts.BarItem(name='volume', value=dataframe['volume'].iloc[i], itemstyle_opts=opts.ItemStyleOpts(color=color)))
 
             price_list.append(alist)
         print('股票数据已成功转换')
@@ -265,5 +274,5 @@ def date_setting(stock_code, start_date, end_date):
 
 
 if __name__ == '__main__':
-    date_setting(stock_code='000001', start_date='2020-04-01', end_date='2020-09-30')
+    date_setting(stock_code='300059', start_date='2020-04-01', end_date='2020-09-30')
     draw()
