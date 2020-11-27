@@ -2,6 +2,9 @@
 **（陆续更新）重新整理过的基于机器学习的股票价格预测算法，里面包含了基本的回测系统以及各种不同的机器学习算法的股票价格预测，包含：LSTM算法、Prophet算法、AutoARIMA、朴素贝叶斯、SVM等**  
 #### 强烈推荐大家去看看sklearn库的文档，地址：[https://sklearn.apachecn.org ] 
 
+### 11-27   
+修正**机器学习算法/DecisionTree.py RandomForest.py** 上面的逻辑错误。
+
 ### 11-25   
 **visualization/mlpredict-line.py**  
 echarts+tushare+autoarima结合的股票走势预测，结合单次预测和逐日预测进行可视化，提高可视化的美观性和适用性，对函数进行封装处理，可以使用别的预测算法进行替换。
