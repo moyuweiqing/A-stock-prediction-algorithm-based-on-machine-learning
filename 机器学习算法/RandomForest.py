@@ -14,7 +14,8 @@ class RF_predict:
         self.tsData = self.tsData.reset_index()
         # print(self.tsData)
     def make_predict(self, node):
-        self.tsData["(t+1)-(t)"] = self.tsData['close'] - self.tsData['close'].shift(-1)
+        # self.tsData["(t+1)-(t)"] = self.tsData['close'] - self.tsData['close'].shift(-1)      # 2020-11-27修正
+        self.tsData["(t+1)-(t)"] = self.tsData['close'].shift(1) - self.tsData['close']
         self.tsData['label'] = 0
         # 构建对应表
         for i in range(0, len(self.tsData)):
