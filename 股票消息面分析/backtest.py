@@ -112,7 +112,7 @@ def compute_allfund(date):
             try:
                 total += tmp['close'].iloc[0] * hold_stocks[key]
             except:
-                total += buyprice[key]
+                total += buyprice[key] * hold_stocks[key]
     total += remaining
     fund_list.append(round(total, 2))
     rate_list.append(round((total - 50000 ) / 50000, 3))
