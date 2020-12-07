@@ -93,7 +93,14 @@ def draw(datelist, pricelist, title):
         .add_yaxis(series_name="走势情况",
             is_selected=True,
             y_axis=pricelist,
-            label_opts=opts.LabelOpts(is_show=False)
+            label_opts=opts.LabelOpts(is_show=False),
+            markpoint_opts=opts.MarkPointOpts(
+                data=[
+                    opts.MarkPointItem(type_="max", name="最大值"),
+                    opts.MarkPointItem(type_="min", name="最小值"),
+                    opts.MarkPointItem(type_="average", name="平均值")
+                ]
+            )
         )
         .render(title + '.html')
     )
