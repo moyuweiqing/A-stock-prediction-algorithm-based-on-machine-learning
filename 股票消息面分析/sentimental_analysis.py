@@ -41,7 +41,7 @@ def build_sentimental_analysis(file_name):
                 pos_word_cnt += 1
             elif j.sentiments < 0.65 and j.sentiments > 0.35: # 阈值设置，大于0.35小于0.65为中立情感
                 mid_word_cnt += 1
-            else:                                           # 阈值设置，小于0.3为负向情感
+            else:                                           # 阈值设置，小于0.35为负向情感
                 nag_word_cnt += 1
 
             sentimentslist.append(j.sentiments)
