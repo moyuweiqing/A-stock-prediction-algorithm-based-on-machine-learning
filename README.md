@@ -1,3 +1,23 @@
+## Smartproxy stormproxies 海外http代理
+
+![图片](https://github.com/moyuweiqing/bilibili-barrage-analysis/blob/main/samrt.png)
+
+**官网链接：https://www.smartproxy.cn/**  
+**专属注册链接：https://www.smartproxy.cn/regist?invite=4DWE6S**  
+**邀请码：4DWE6S**
+
+*真实IP住宅，可以TikTok养号，高匿名性，伪装度高，成功率高，实名注册就送500m流量，套餐价格65折！*
+
+- 超高并发备份  
+  独享高性能服务器，以真实住宅地址进行请求访问，保持代理正常连接，不限制并发数量，降低业务成本，提高运行效率。
+- 优质IP资源  
+  整合真实家庭住宅IP，汇聚IP资源池，不断更新IP，来自全球各个国家地区进行访问。自有数据节点，网络集成快捷。
+- 形式多样  
+  多种代理认证模式，帮助账户灵活设置，账密模式通过region参数添加制定国家城市；API白名单模式通过API链接获取即可。
+- 技术服务  
+  支持业务场景定制独享IP，千兆超高速带宽，出口IP可定制时效提供获取流量使用报告，追踪流量记录。  
+  
+
 # A-stock-prediction-algorithm-based-on-machine-learning
 **（陆续更新）重新整理过的基于机器学习的股票价格预测算法，里面包含了基本的回测系统以及各种不同的机器学习算法的股票价格预测，包含：LSTM算法、Prophet算法、AutoARIMA、朴素贝叶斯、SVM等**  
 #### 强烈推荐大家去看看sklearn库的文档，地址：[https://sklearn.apachecn.org ] 
