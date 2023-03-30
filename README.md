@@ -4,7 +4,6 @@
 
 **官网链接：https://www.smartproxy.cn/**  
 **专属注册链接：https://www.smartproxy.cn/regist?invite=4DWE6S**  
-**邀请码：4DWE6S**
 
 *真实IP住宅，可以TikTok养号，高匿名性，伪装度高，成功率高，实名注册就送500m流量，套餐价格65折！*
 
